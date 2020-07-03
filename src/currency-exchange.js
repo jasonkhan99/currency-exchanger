@@ -1,8 +1,8 @@
 export class ExchangeRate {
 
-  async getExchangeRate() {
+  async getExchangeRate(country) {
     try {
-      let response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
+      let response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD/${country}`);
       let jsonifiedResponse;
       if (response.ok && response.status == 200) {
         jsonifiedResponse = await response.json();
