@@ -14,11 +14,13 @@ $(document).ready(function() {
 
     (async () => {
       const response = await getExchangeRate();
+      const checkArray = Object.keys(response.conversion_rates);
+      console.log(checkArray);
       if(!response) {
         $("#errorMessage").html("<p>There has been an error processing your request<p>");
       } else if (Number.isNaN(usd)) {
         $("#errorMessage").html("<p>Please enter a number<p>");
-      } else if (!response.conversion_rates.includes(country)) {
+      } else if (!checkArray.includes(country)) {
         $("#errorMessage").html("<p>We do not have info on this Country<p>");
       } else {
         $("#errorMessage").html("<p>"+response.conversion_rates.country+"</p>");
