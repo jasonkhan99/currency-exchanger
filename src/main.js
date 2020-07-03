@@ -7,6 +7,7 @@ import { ExchangeRate } from './../src/currency-exchange.js';
 $(document).ready(function () {
   $("#exchangeSelect").submit(function(event) {
     event.preventDefault();
+    const usd = $(parseInt('#usdAmount')).val();
     const country = $('#currencySelect').val();
     
     (async () => {
