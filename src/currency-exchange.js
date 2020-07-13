@@ -12,3 +12,7 @@ export async function getExchangeRate() {
     return false;
   }
 }
+
+export function calculateExchange(usd, response) {
+  return usd * response;
+}
